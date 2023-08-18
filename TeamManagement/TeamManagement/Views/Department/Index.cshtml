@@ -1,0 +1,36 @@
+﻿@model IEnumerable<TeamManagement.Models.Department>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Departments</h2>
+<hr />
+
+@Html.ActionLink("+ Departments", "AddDepartments", new { controller = "Department" }, new { @class = "btn btn-success" })
+<br />
+<br />
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.DepartmentName)</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var departments in Model)
+        {
+            <tr>
+                <td>@departments.DepartmentName</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { controller = "Department", id = departments.DepartmentId }, new { @class = "btn btn-warning" })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { controller = "Department", id = departments.DepartmentId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table> 

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Management</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        @Html.ActionLink("Team Management", "Index", "Employee", new { area = "" }, new { @class = "navbar-brand" })
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    @Html.ActionLink("Employees", "Index", new { controller = "Employee" }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Departments", "Index", new { controller = "Department" }, new { @class = "nav-link" })
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Team Management</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

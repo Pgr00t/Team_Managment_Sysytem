@@ -1,0 +1,56 @@
+﻿@model IEnumerable<TeamManagement.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employees</h2>
+<hr />
+
+@Html.ActionLink("+ Employees", "AddEmployees", new { controller = "Employee" }, new { @class = "btn btn-success" })
+<br />
+<br />
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.EmployeeName)</th>
+            <th>@Html.DisplayNameFor(m => m.EmployeeDesignation)</th>
+            <th>@Html.DisplayNameFor(m => m.EmployeeAddress)</th>
+            <th>@Html.DisplayNameFor(m => m.EmployeePassport)</th>
+            <th>@Html.DisplayNameFor(m => m.EmployeePhone)</th>
+            <th>@Html.DisplayNameFor(m => m.EmployeeGender)</th>
+            <th>@Html.DisplayNameFor(m => m.City)</th>
+            <th>@Html.DisplayNameFor(m => m.Project)</th>
+            <th>@Html.DisplayNameFor(m => m.CompanyName)</th>
+            <th>@Html.DisplayNameFor(m => m.PinCode)</th>
+            <th>@Html.DisplayNameFor(m => m.DepartmentId)</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employees in Model)
+        {
+            <tr>
+                <td>@employees.EmployeeName</td>
+                <td>@employees.EmployeeDesignation</td>
+                <td>@employees.EmployeeAddress</td>
+                <td>@employees.EmployeePassport</td>
+                <td>@employees.EmployeePhone</td>
+                <td>@employees.EmployeeGender</td>
+                <td>@employees.City</td>
+                <td>@employees.Project</td>
+                <td>@employees.CompanyName</td>
+                <td>@employees.PinCode</td>
+                <td>@employees.Department.DepartmentName</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { controller = "Employee", id = employees.EmployeeId }, new { @class = "btn btn-warning" })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { controller = "Employee", id = employees.EmployeeId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table> 
